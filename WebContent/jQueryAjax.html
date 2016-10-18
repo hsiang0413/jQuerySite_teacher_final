@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">jQuery Site</a>
+				</div>
+
+
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="jQueryFirst.html" class="list-group-item">jQueryFirst</a>
+					<a href="WritingStyle.html" class="list-group-item">jQueryWritingStyle</a>
+					<a href="jQuerySelectors.html" class="list-group-item">jQuerySelectors</a>
+					<a href="jQueryDOM.html" class="list-group-item">jQueryDOM</a> <a
+						href="jQueryCSS.html" class="list-group-item">jQueryCSS</a> <a
+						href="jQueryEach.html" class="list-group-item">jQueryEach</a> 
+					 <a href="resize.html" class="list-group-item" target="_blank">jQueryEvent</a>
+  <a href="jQueryEvent.html" class="list-group-item">jQueryEventBinding</a> <a
+						href="jQueryEffects.html" class="list-group-item">jQueryEffects</a>
+					<a href="jQueryAjax.html" class="list-group-item">jQueryAjax</a> <a
+						href="jQueryUI.html" class="list-group-item">jQueryUI</a>
+<a href="jQueryPlugin_DataTables.html" class="list-group-item">jQueryPlugin</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="jumbotron">
+					<div class="page-header">
+						<h3>jQuery Ajax</h3>
+					</div>
+					<!-- 每頁不同的內容從這裡開始 -->
+					<input type="button" value="load" id="buttonLoad"
+						class="btn btn-default"> <input type="button" value="get"
+						id="buttonGet" class="btn btn-primary"> <input
+						type="button" value="post" id="buttonPost" class="btn btn-success">
+
+					<input type="button" value="ajax" id="buttonAjax"
+						class="btn btn-danger"> 
+						<img src="images/ajax-loader.gif" id="img1">
+					<hr>
+					<div id="show"></div>
+					<hr>
+					<select id="select1" class="form-control">
+						
+					</select>
+					<table id="productTable" class="table table-bordered">
+						<thead>
+							<tr>
+								<th>ProductID</th>
+								<th>ProductName</th>
+								<th>UnitPrice</th>
+								<th>UnitsInStock</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+
+					<!-- 每頁不同的內容到這裡結束 -->
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<h2>jQuery</h2>
+				<p>jQuery的語法設計使得許多操作變得容易，如操作文件（document）、選擇文件物件模型（DOM）元素、建立動畫效果、處理事件、以及開發Ajax程式。jQuery也提供了給開發人員在其上建立外掛模組的能力。這使開發人員可以對底層互動與動畫、高階效果和高階主題化的元件進行抽象化。模組化的方式使jQuery函式庫能夠建立功能強大的動態網頁以及網路應用程式。
+				</p>
+				<p>
+					<a class="btn btn-primary"
+						href="https://zh.wikipedia.org/wiki/JQuery" role="button">詳細資料
+						&raquo;</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h2>jQueryUI</h2>
+				<p>jQuery UI是一套JavaScript 函式庫，提供抽象化、可自訂主題的GUI控制項與動畫效果。基於jQuery
+					JavaScript函式庫，可用來建構互動式的網際網路應用程式。在2007年9月約翰·雷西格於jquery.com部落格裡的一篇文章裡正式公諸於世[2]。最新的版本需要jQuery
+					2.1.1或更新的版本。</p>
+				<p>
+					<a class="btn btn-primary"
+						href="https://zh.wikipedia.org/wiki/JQuery_UI" role="button">詳細資料
+						&raquo;</a>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h2>jQueryMobile</h2>
+				<p>jQuery Mobile is a touch-optimized web framework (also known
+					as a mobile framework), more specifically a JavaScript library,
+					currently being developed by the jQuery project team. The
+					development focuses on creating a framework compatible with a wide
+					variety of smartphones and tablet computers</p>
+				<p>
+					<a class="btn btn-primary"
+						href="https://en.wikipedia.org/wiki/JQuery_Mobile" role="button">詳細資料
+						&raquo;</a>
+				</p>
+			</div>
+		</div>
+
+		<!-- Site footer -->
+		<footer class="footer">
+			<p>&copy; IIIEDU</p>
+		</footer>
+
+	</div>
+	<!-- /container -->
+
+
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(function() {
+			$('#buttonLoad').click(function() {
+				//練習一使用load()載入jQueryEffects.html網頁中的img1圖片
+                 $('#show').load('jQueryEffects.html #img1');
+			});
+
+			$('#buttonGet').click(function() {
+				//練習二使用get()
+				//1. 呼叫Parameter.jsp
+				//2. 傳 name=Jack及age=30的資料給Parameter.jsp
+				//3. 將Server端回傳的結果加上h2的標籤,顯示在show的div中
+//                  $.get('Parameter.jsp',{name:'Jack',age:30},function(data){
+//                 	 //data 就是Server端回傳的結果
+//                 	 $('#show').html("<h2>" + data + "</h2>");
+//                  })
+                 
+                 $.ajax({
+                	 url:'Parameter.jsp',
+                	 type:'get',
+                	 data:{name:'Jack',age:30},
+                	 success:function(data){
+                		 $('#show').html("<h2>" + data + "</h2>");
+                	 }
+                	 
+                 })
+			});
+
+			$('#buttonPost').click(function() {
+				//練習三使用post()
+				//1. 呼叫Parameter.jsp
+				//2. 傳 name=Mary及age=的25資料給Parameter.jsp
+				//3. 將Server端回傳的結果加上h2的標籤,顯示在show的div中
+// 				$.post('Parameter.jsp',{name:'Mary',age:25},function(data){
+//                 	 //data 就是Server端回傳的結果
+//                 	 $('#show').html("<h2>" + data + "</h2>");
+//                  })
+                 
+                   $.ajax({
+                	 url:'Parameter.jsp',
+                	 type:'post',  //get post put delete
+                	 data:{name:'Mary',age:25},
+                	 success:function(data){
+                		 $('#show').html("<h2>" + data + "</h2>");
+                	 }
+                	 
+                 })
+			});
+
+			$('#select1').change(function() {
+				//練習四使用getJSON()
+				//1. 呼叫Products?categoryID=2
+				//2. 將Server端回傳的結果顯示在id為productTable的table中
+// 				var tb = $('#productTable>tbody');
+// 				tb.empty();
+//                 $.getJSON('Products',{categoryID:$(this).val()},function(datas){
+//                 	//datas就是回傳的json資料，jQuery已經幫我們轉型成json物件了 
+//                 	var flag = $(document.createDocumentFragment());
+//                 	$.each(datas,function(idx,product){
+//                 		//console.log(product.ProductName);
+//                 		var cell1 = $("<td></td>").text(product.ProductID);
+//                 		var cell2 = $("<td></td>").text(product.ProductName);
+//                 		var cell3 = $("<td></td>").text(product.UnitPrice);
+//                 		var cell4 = $("<td></td>").text(product.UnitsInStock);
+                		
+//                 		var row = $("<tr></tr>").append([cell1,cell2,cell3,cell4]);
+                		
+                		
+//                 		flag.append(row);
+                		
+                		
+//                 	})
+                	
+//                 	tb.append(flag);
+ 
+  //              })
+                
+            	$.ajax({
+            		url:"Products",
+            		type:"get",
+            		dataType:"json",
+            		data:{categoryID:$(this).val()},
+            		success:function(datas){
+            			var tb = $('#productTable>tbody');
+         				tb.empty();
+         				var flag = $(document.createDocumentFragment());
+            			$.each(datas,function(idx,product){
+                    		//console.log(product.ProductName);
+                    		var cell1 = $("<td></td>").text(product.ProductID);
+                    		var cell2 = $("<td></td>").text(product.ProductName);
+                    		var cell3 = $("<td></td>").text(product.UnitPrice);
+                    		var cell4 = $("<td></td>").text(product.UnitsInStock);
+                    		
+                    		var row = $("<tr></tr>").append([cell1,cell2,cell3,cell4]);
+                    		
+                    		
+                    		flag.append(row);
+                    		
+                    		
+                    	})
+                    	tb.append(flag);
+            		}
+            		
+            	});
+			});
+
+			$('#buttonAjax').click(function() {
+				//練習五使用ajax()
+				//清除select1中的option
+				//1. 呼叫XMLServlet
+				//2. 將回傳的XML資料加到select的標籤中
+				
+				$.ajax({
+					url:'XMLServlet',
+					type:'get',
+					dataType:'xml',
+					data:{},
+					success:function(data){
+						//data 就是 XMLDOM
+						var categories = $(data).find("Category");
+						var flag = $(document.createDocumentFragment());
+						categories.each(function(){
+							var categoryName =$(this).children("CategoryName").text();
+							var categoryId =$(this).children("CategoryID").text();
+							var opt = $("<option></option>").text(categoryName).val(categoryId);
+							flag.append(opt);
+						});
+						$('#select1').empty().append(flag);
+						
+					}
+					
+				});
+
+			});
+
+			//練習六 顯示server端的程式正在執行
+			$('#img1').hide();
+			$(document).ajaxStart(function(){
+				          $('#img1').show(500);
+			           }).ajaxStop(function(){
+			        	   $('#img1').hide(500);
+			           });
+
+		});
+	</script>
+</body>
+
+</html>
